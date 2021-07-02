@@ -34,7 +34,7 @@ class PaymentsVC: UIViewController {
                 self?.tableView.reloadData()
             }
         }
-        view.backgroundColor = .lightGray
+        view.backgroundColor = UIColor.init(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
         configureTableView()
         setTableViewConstraints()
         
@@ -44,6 +44,7 @@ class PaymentsVC: UIViewController {
     // MARK: - Methods
     private func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = UIColor.init(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
         title = "Payments"
         let leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(exitAction))
         navigationItem.leftBarButtonItem = leftBarButtonItem
@@ -55,8 +56,9 @@ class PaymentsVC: UIViewController {
     
     private func configureTableView() {
         view.addSubview(tableView)
-        tableView.backgroundColor = .lightGray
+        tableView.backgroundColor = UIColor.init(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
         tableView.rowHeight = 200
+        tableView.delegate = self
         tableView.dataSource = self
         tableView.register(PaymentCell.self, forCellReuseIdentifier: PaymentCell.paymentCell)
         tableView.showsVerticalScrollIndicator = false
@@ -70,6 +72,21 @@ class PaymentsVC: UIViewController {
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive   = true
     }
 
+}
+
+
+// MARK: - UITableViewDelegate
+extension PaymentsVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
+        cell.layer.transform = rotationTransform
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.75) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
