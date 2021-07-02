@@ -12,6 +12,8 @@
 		BE906E07268F08E000D9A35E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE906E06268F08E000D9A35E /* Assets.xcassets */; };
 		BE906E0A268F08E000D9A35E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE906E08268F08E000D9A35E /* LaunchScreen.storyboard */; };
 		BE906E12268F099700D9A35E /* AuthorizationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E11268F099700D9A35E /* AuthorizationVC.swift */; };
+		BE906E15268F140700D9A35E /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E14268F140700D9A35E /* NetworkingService.swift */; };
+		BE906E17268F1C2700D9A35E /* SessionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E16268F1C2600D9A35E /* SessionApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		BE906E09268F08E000D9A35E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE906E0B268F08E000D9A35E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE906E11268F099700D9A35E /* AuthorizationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationVC.swift; sourceTree = "<group>"; };
+		BE906E14268F140700D9A35E /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
+		BE906E16268F1C2600D9A35E /* SessionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		BE906DFC268F08DD00D9A35E /* PaymentsApp */ = {
 			isa = PBXGroup;
 			children = (
+				BE906E13268F13ED00D9A35E /* ServiceLayer */,
 				BE906DFD268F08DD00D9A35E /* AppDelegate.swift */,
 				BE906DFF268F08DD00D9A35E /* SceneDelegate.swift */,
 				BE906E11268F099700D9A35E /* AuthorizationVC.swift */,
@@ -62,6 +67,15 @@
 				BE906E0B268F08E000D9A35E /* Info.plist */,
 			);
 			path = PaymentsApp;
+			sourceTree = "<group>";
+		};
+		BE906E13268F13ED00D9A35E /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				BE906E14268F140700D9A35E /* NetworkingService.swift */,
+				BE906E16268F1C2600D9A35E /* SessionApp.swift */,
+			);
+			path = ServiceLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +149,9 @@
 			files = (
 				BE906E12268F099700D9A35E /* AuthorizationVC.swift in Sources */,
 				BE906DFE268F08DD00D9A35E /* AppDelegate.swift in Sources */,
+				BE906E17268F1C2700D9A35E /* SessionApp.swift in Sources */,
 				BE906E00268F08DD00D9A35E /* SceneDelegate.swift in Sources */,
+				BE906E15268F140700D9A35E /* NetworkingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
