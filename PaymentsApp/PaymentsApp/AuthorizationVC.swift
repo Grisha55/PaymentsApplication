@@ -9,24 +9,13 @@ import UIKit
 
 class AuthorizationVC: UIViewController {
 
+    // MARK: - Properties
     private let titleLabel = UILabel()
     private let loginTextField = UITextField()
     private let passwordTextField = UITextField()
     private let authStackView = UIStackView()
     private let logInButton = UIButton()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        guard let token = SessionApp.shared.token else { return }
-        NetworkingService().getUserPayments(token: token) { result in
-            switch result {
-            case .failure(let error):
-                print(error.localizedDescription)
-            case .success(let values):
-                values.forEach { print($0) }
-            }
-        }
-    }
+    private var token: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +35,7 @@ class AuthorizationVC: UIViewController {
         setAuthStackViewConstraints()
     }
     
+    // MARK: - Methods
     private func configureLogInButton() {
         logInButton.setTitle("LOG IN", for: .normal)
         logInButton.setTitleColor(.black, for: .normal)
@@ -57,11 +47,16 @@ class AuthorizationVC: UIViewController {
     }
     
     @objc func buttonLogInAction() {
-        // TODO: Сделать проверку по токену
-        NetworkingService().getUserToken(login: loginTextField.text!, password: passwordTextField.text!)
-        if UserDefaults.standard.string(forKey: "Token") != nil {
-            print("This token isn't nil")
-        }
+        NetworkingService().getUserToken(login: loginTextField.text!, password: passwordTextField.text!, completion: { [weak self] token in
+            guard let self = self else { return }
+            if token != "" {
+                let paymentsVC = PaymentsVC(token: token)
+                paymentsVC.modalTransitionStyle = .crossDissolve
+                paymentsVC.modalPresentationStyle = .fullScreen
+                self.present(paymentsVC, animated: true, completion: nil)
+            }
+        })
+        
     }
     
     private func configureTitleLabel() {
