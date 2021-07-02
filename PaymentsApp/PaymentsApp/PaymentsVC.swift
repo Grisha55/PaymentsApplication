@@ -34,7 +34,7 @@ class PaymentsVC: UIViewController {
                 self?.tableView.reloadData()
             }
         }
-        view.backgroundColor = .white
+        view.backgroundColor = .orange
         configureTableView()
         setTableViewConstraints()
         
@@ -43,6 +43,7 @@ class PaymentsVC: UIViewController {
     
     // MARK: - Methods
     private func setupNavigationBar() {
+        navigationController?.navigationBar.barTintColor = .orange
         navigationController?.navigationBar.prefersLargeTitles = true
         title = "Payments"
         let leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(exitAction))
@@ -58,6 +59,7 @@ class PaymentsVC: UIViewController {
         tableView.rowHeight = 200
         tableView.dataSource = self
         tableView.register(PaymentCell.self, forCellReuseIdentifier: PaymentCell.paymentCell)
+        tableView.showsVerticalScrollIndicator = false
     }
     
     private func setTableViewConstraints() {
