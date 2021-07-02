@@ -15,6 +15,19 @@ class AuthorizationVC: UIViewController {
     private let authStackView = UIStackView()
     private let logInButton = UIButton()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let token = SessionApp.shared.token else { return }
+        NetworkingService().getUserPayments(token: token) { result in
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let values):
+                values.forEach { print($0) }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,7 +58,10 @@ class AuthorizationVC: UIViewController {
     
     @objc func buttonLogInAction() {
         // TODO: Сделать проверку по токену
-        print("Checking users token")
+        NetworkingService().getUserToken(login: loginTextField.text!, password: passwordTextField.text!)
+        if UserDefaults.standard.string(forKey: "Token") != nil {
+            print("This token isn't nil")
+        }
     }
     
     private func configureTitleLabel() {
@@ -69,6 +85,7 @@ class AuthorizationVC: UIViewController {
     
     private func configureLoginTF() {
         loginTextField.placeholder = "Enter your Login"
+        loginTextField.autocapitalizationType = .none
         loginTextField.layer.cornerRadius = 8.0
         loginTextField.layer.borderWidth = 1.0
         loginTextField.layer.borderColor = UIColor.black.cgColor
@@ -76,6 +93,7 @@ class AuthorizationVC: UIViewController {
     
     private func configurePasswordTF() {
         passwordTextField.placeholder = "Enter your Password"
+        passwordTextField.autocapitalizationType = .none
         passwordTextField.layer.cornerRadius = 8.0
         passwordTextField.layer.borderWidth = 1.0
         passwordTextField.layer.borderColor = UIColor.black.cgColor
