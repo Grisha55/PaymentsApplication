@@ -25,6 +25,16 @@ class PaymentsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getDataToTableView()
+        view.backgroundColor = UIColor.init(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
+        configureTableView()
+        setTableViewConstraints()
+        setupNavigationBar()
+    }
+    
+    // MARK: - Methods
+    func getDataToTableView() {
         NetworkingService().getUserPayments(token: token) { [weak self] status in
             switch status {
             case .failure(let error):
@@ -34,14 +44,8 @@ class PaymentsVC: UIViewController {
                 self?.tableView.reloadData()
             }
         }
-        view.backgroundColor = UIColor.init(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
-        configureTableView()
-        setTableViewConstraints()
-        
-        setupNavigationBar()
     }
     
-    // MARK: - Methods
     private func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = UIColor.init(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
@@ -77,6 +81,10 @@ class PaymentsVC: UIViewController {
 
 // MARK: - UITableViewDelegate
 extension PaymentsVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)

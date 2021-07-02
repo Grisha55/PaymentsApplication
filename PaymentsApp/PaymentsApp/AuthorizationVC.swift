@@ -65,7 +65,7 @@ class AuthorizationVC: UIViewController {
             return
         }
         guard let password = passwordTextField.text, password != "" else {
-            Alerts().showAlert(vc: self, message: "Заполните пороль")
+            Alerts().showAlert(vc: self, message: "Заполните пароль")
             return
         }
         
@@ -137,13 +137,13 @@ class AuthorizationVC: UIViewController {
     }
     
     private func setPasswordTFConstraints() {
-        passwordTextField.translatesAutoresizingMaskIntoConstraints                                    = false
-        passwordTextField.trailingAnchor.constraint(equalTo: authStackView.trailingAnchor).isActive    = true
+        passwordTextField.translatesAutoresizingMaskIntoConstraints                                  = false
+        passwordTextField.trailingAnchor.constraint(equalTo: authStackView.trailingAnchor).isActive  = true
     }
     
     private func setLogInButtonConstraints() {
-        logInButton.translatesAutoresizingMaskIntoConstraints                                    = false
-        logInButton.trailingAnchor.constraint(equalTo: authStackView.trailingAnchor).isActive    = true
+        logInButton.translatesAutoresizingMaskIntoConstraints                                 = false
+        logInButton.trailingAnchor.constraint(equalTo: authStackView.trailingAnchor).isActive = true
     }
 
 }
