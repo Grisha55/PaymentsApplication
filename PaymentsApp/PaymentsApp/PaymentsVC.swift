@@ -42,7 +42,7 @@ class PaymentsVC: UIViewController {
     // MARK: - Methods
     private func configureTableView() {
         view.addSubview(tableView)
-        tableView.rowHeight = 150
+        tableView.rowHeight = 200
         tableView.dataSource = self
         tableView.register(PaymentCell.self, forCellReuseIdentifier: PaymentCell.paymentCell)
     }

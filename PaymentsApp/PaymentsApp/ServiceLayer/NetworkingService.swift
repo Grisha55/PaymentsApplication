@@ -5,11 +5,11 @@
 //  Created by Григорий Виняр on 02.07.2021.
 //
 
-import Foundation
+import UIKit
 
 class NetworkingService {
     
-    func getUserToken(login: String, password: String, completion: @escaping (String) -> Void) {
+    func getUserToken(vc: UIViewController, login: String, password: String, completion: @escaping (String) -> Void) {
         
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
@@ -41,7 +41,12 @@ class NetworkingService {
             
             do {
                 guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else { return }
-                guard let response = json["response"] as? [String: Any] else { return }
+                guard let response = json["response"] as? [String: Any] else {
+                    DispatchQueue.main.async {
+                        Alerts().showAlert(vc: vc, message: "Неправильный логин или пароль")
+                    }
+                    return
+                }
                 guard let token = response["token"] as? String else { return }
                 DispatchQueue.main.async {
                     completion(token)

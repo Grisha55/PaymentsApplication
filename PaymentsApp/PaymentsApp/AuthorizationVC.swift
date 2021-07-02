@@ -37,7 +37,7 @@ class AuthorizationVC: UIViewController {
     
     // MARK: - Methods
     private func configureLogInButton() {
-        logInButton.setTitle("LOG IN", for: .normal)
+        logInButton.setTitle("Войти", for: .normal)
         logInButton.setTitleColor(.black, for: .normal)
         logInButton.backgroundColor = .orange
         logInButton.layer.cornerRadius = 8.0
@@ -47,7 +47,17 @@ class AuthorizationVC: UIViewController {
     }
     
     @objc func buttonLogInAction() {
-        NetworkingService().getUserToken(login: loginTextField.text!, password: passwordTextField.text!, completion: { [weak self] token in
+        guard let login = loginTextField.text, login != "" else {
+            Alerts().showAlert(vc: self, message: "Заполните логин")
+            return
+        }
+        guard let password = passwordTextField.text, password != "" else {
+            Alerts().showAlert(vc: self, message: "Заполните пороль")
+            return
+        }
+        
+        NetworkingService().getUserToken(vc: self, login: login, password: password, completion: { [weak self] token in
+            
             guard let self = self else { return }
             if token != "" {
                 let paymentsVC = PaymentsVC(token: token)
@@ -61,7 +71,7 @@ class AuthorizationVC: UIViewController {
     
     private func configureTitleLabel() {
         view.addSubview(titleLabel)
-        titleLabel.text = "Authorization"
+        titleLabel.text = "Авторизация"
         titleLabel.font = titleLabel.font.withSize(55)
         titleLabel.textColor = .black
     }
@@ -79,7 +89,7 @@ class AuthorizationVC: UIViewController {
     }
     
     private func configureLoginTF() {
-        loginTextField.placeholder = "Enter your Login"
+        loginTextField.placeholder = "Введите Логин"
         loginTextField.autocapitalizationType = .none
         loginTextField.layer.cornerRadius = 8.0
         loginTextField.layer.borderWidth = 1.0
@@ -87,7 +97,7 @@ class AuthorizationVC: UIViewController {
     }
     
     private func configurePasswordTF() {
-        passwordTextField.placeholder = "Enter your Password"
+        passwordTextField.placeholder = "Введите Пароль"
         passwordTextField.autocapitalizationType = .none
         passwordTextField.layer.cornerRadius = 8.0
         passwordTextField.layer.borderWidth = 1.0

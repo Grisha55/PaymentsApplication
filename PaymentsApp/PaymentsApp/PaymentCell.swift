@@ -46,7 +46,7 @@ class PaymentCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.alignment = .leading
         stackView.distribution = .fillProportionally
-        stackView.spacing = 5
+        stackView.spacing = 2
         
         stackView.addArrangedSubview(createdLabel)
         stackView.addArrangedSubview(currencyLabel)
@@ -64,6 +64,7 @@ class PaymentCell: UITableViewCell {
     
     private func configureDescLabel() {
         descLabel.textColor = .black
+        descLabel.numberOfLines = 0
     }
     
     private func configureAmountLabel() {
@@ -71,11 +72,11 @@ class PaymentCell: UITableViewCell {
     }
     
     private func setStackViewConstraints() {
-        stackView.translatesAutoresizingMaskIntoConstraints                   = false
-        stackView.topAnchor.constraint(equalTo: topAnchor).isActive           = true
-        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive     = true
-        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive   = true
+        stackView.translatesAutoresizingMaskIntoConstraints                                   = false
+        stackView.topAnchor.constraint(equalTo: topAnchor, constant: 10.0).isActive           = true
+        stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 10.0).isActive     = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10.0).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10.0).isActive   = true
     }
     
     override func prepareForReuse() {
