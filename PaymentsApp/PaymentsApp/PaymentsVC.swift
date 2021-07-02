@@ -37,9 +37,22 @@ class PaymentsVC: UIViewController {
         view.backgroundColor = .white
         configureTableView()
         setTableViewConstraints()
+        
+        setupNavigationBar()
     }
     
     // MARK: - Methods
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Payments"
+        let leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(exitAction))
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+    }
+    
+    @objc func exitAction() {
+        navigationController?.popViewController(animated: true)
+    }
+    
     private func configureTableView() {
         view.addSubview(tableView)
         tableView.rowHeight = 200
