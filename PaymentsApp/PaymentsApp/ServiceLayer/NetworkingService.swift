@@ -9,7 +9,7 @@ import Foundation
 
 class NetworkingService {
     
-    func getUserToken(login: String, password: String) {
+    func getUserToken(login: String, password: String, completion: @escaping (String) -> Void) {
         
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
@@ -43,7 +43,9 @@ class NetworkingService {
                 guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else { return }
                 guard let response = json["response"] as? [String: Any] else { return }
                 guard let token = response["token"] as? String else { return }
-                SessionApp.shared.token = token
+                DispatchQueue.main.async {
+                    completion(token)
+                }
             } catch {
                 print(error.localizedDescription)
             }
