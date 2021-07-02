@@ -44,10 +44,10 @@ class PaymentCell: UITableViewCell {
     
     // MARK: - Methods
     func configureCell(created: String, currency: String, desc: String, amount: String) {
-        self.createdLabel.text = "Created: \(created)"
-        self.currencyLabel.text = "Currency: \(currency)"
-        self.descLabel.text = "Desc: \(desc)"
-        self.amountLabel.text = "Amount: \(amount)"
+        self.createdLabel.text = "● Created: \(created)"
+        self.currencyLabel.text = "● Currency: \(currency)"
+        self.descLabel.text = "● Desc: \(desc)"
+        self.amountLabel.text = "● Amount: \(amount)"
     }
     
     private func configureBackView() {
