@@ -46,6 +46,7 @@ class AuthorizationVC: UIViewController {
     // MARK: - Methods
     private func setupNavigationBar() {
         navigationItem.leftBarButtonItem = nil
+        navigationController?.navigationBar.barTintColor = .orange
     }
     
     private func configureLogInButton() {
