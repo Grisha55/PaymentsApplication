@@ -14,8 +14,8 @@ class NetworkingService {
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
         var components = URLComponents()
-        components.scheme = "http"
-        components.host = "82.202.204.94"
+        components.scheme = SessionApp.shared.scheme
+        components.host = SessionApp.shared.host
         components.path = "/api-test/login"
         
         guard let url = components.url else { return }
@@ -23,8 +23,8 @@ class NetworkingService {
         let parameters = ["login" : login, "password" : password]
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.addValue("12345", forHTTPHeaderField: "app-key")
-        request.addValue("1", forHTTPHeaderField: "v")
+        request.addValue(SessionApp.shared.appKey, forHTTPHeaderField: "app-key")
+        request.addValue(SessionApp.shared.v, forHTTPHeaderField: "v")
         
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
         
@@ -63,8 +63,8 @@ class NetworkingService {
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
         var components = URLComponents()
-        components.scheme = "http"
-        components.host = "82.202.204.94"
+        components.scheme = SessionApp.shared.scheme
+        components.host = SessionApp.shared.host
         components.path = "/api-test/payments"
         components.queryItems = [
             URLQueryItem(name: "token", value: token)
@@ -72,8 +72,8 @@ class NetworkingService {
         
         guard let url = components.url else { return }
         var request = URLRequest(url: url)
-        request.addValue("12345", forHTTPHeaderField: "app-key")
-        request.addValue("1", forHTTPHeaderField: "v")
+        request.addValue(SessionApp.shared.appKey, forHTTPHeaderField: "app-key")
+        request.addValue(SessionApp.shared.v, forHTTPHeaderField: "v")
         
         let task = session.dataTask(with: request) { data, response, error in
             

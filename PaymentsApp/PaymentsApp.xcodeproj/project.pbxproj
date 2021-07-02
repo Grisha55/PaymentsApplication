@@ -13,10 +13,10 @@
 		BE906E0A268F08E000D9A35E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE906E08268F08E000D9A35E /* LaunchScreen.storyboard */; };
 		BE906E12268F099700D9A35E /* AuthorizationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E11268F099700D9A35E /* AuthorizationVC.swift */; };
 		BE906E15268F140700D9A35E /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E14268F140700D9A35E /* NetworkingService.swift */; };
-		BE906E17268F1C2700D9A35E /* SessionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E16268F1C2600D9A35E /* SessionApp.swift */; };
 		BE906E19268F1F2C00D9A35E /* PaymentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E18268F1F2C00D9A35E /* PaymentsVC.swift */; };
 		BE906E1B268F2B5200D9A35E /* PaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E1A268F2B5200D9A35E /* PaymentCell.swift */; };
 		BE906E1D268F443000D9A35E /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E1C268F443000D9A35E /* Alerts.swift */; };
+		BE906E1F268F588000D9A35E /* SessionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E1E268F588000D9A35E /* SessionApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +28,10 @@
 		BE906E0B268F08E000D9A35E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE906E11268F099700D9A35E /* AuthorizationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationVC.swift; sourceTree = "<group>"; };
 		BE906E14268F140700D9A35E /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
-		BE906E16268F1C2600D9A35E /* SessionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionApp.swift; sourceTree = "<group>"; };
 		BE906E18268F1F2C00D9A35E /* PaymentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsVC.swift; sourceTree = "<group>"; };
 		BE906E1A268F2B5200D9A35E /* PaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCell.swift; sourceTree = "<group>"; };
 		BE906E1C268F443000D9A35E /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		BE906E1E268F588000D9A35E /* SessionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				BE906E14268F140700D9A35E /* NetworkingService.swift */,
-				BE906E16268F1C2600D9A35E /* SessionApp.swift */,
 				BE906E1C268F443000D9A35E /* Alerts.swift */,
+				BE906E1E268F588000D9A35E /* SessionApp.swift */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -156,10 +156,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE906E1F268F588000D9A35E /* SessionApp.swift in Sources */,
 				BE906E12268F099700D9A35E /* AuthorizationVC.swift in Sources */,
 				BE906DFE268F08DD00D9A35E /* AppDelegate.swift in Sources */,
 				BE906E1D268F443000D9A35E /* Alerts.swift in Sources */,
-				BE906E17268F1C2700D9A35E /* SessionApp.swift in Sources */,
 				BE906E00268F08DD00D9A35E /* SceneDelegate.swift in Sources */,
 				BE906E1B268F2B5200D9A35E /* PaymentCell.swift in Sources */,
 				BE906E15268F140700D9A35E /* NetworkingService.swift in Sources */,
