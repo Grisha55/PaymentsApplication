@@ -17,6 +17,12 @@ class AuthorizationVC: UIViewController {
     private let logInButton = UIButton()
     private var token: String?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loginTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,9 +39,15 @@ class AuthorizationVC: UIViewController {
         setPasswordTFConstraints()
         setLogInButtonConstraints()
         setAuthStackViewConstraints()
+        
+        setupNavigationBar()
     }
     
     // MARK: - Methods
+    private func setupNavigationBar() {
+        navigationItem.leftBarButtonItem = nil
+    }
+    
     private func configureLogInButton() {
         logInButton.setTitle("Войти", for: .normal)
         logInButton.setTitleColor(.black, for: .normal)
@@ -63,7 +75,7 @@ class AuthorizationVC: UIViewController {
                 let paymentsVC = PaymentsVC(token: token)
                 paymentsVC.modalTransitionStyle = .crossDissolve
                 paymentsVC.modalPresentationStyle = .fullScreen
-                self.present(paymentsVC, animated: true, completion: nil)
+                self.navigationController?.pushViewController(paymentsVC, animated: true)
             }
         })
         
