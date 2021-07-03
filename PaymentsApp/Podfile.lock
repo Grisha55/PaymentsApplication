@@ -1,0 +1,16 @@
+PODS:
+  - DynamicJSON (2.0.2)
+
+DEPENDENCIES:
+  - DynamicJSON
+
+SPEC REPOS:
+  trunk:
+    - DynamicJSON
+
+SPEC CHECKSUMS:
+  DynamicJSON: fc0c5a82980ff8aa956156f04d84fcdb2822e875
+
+PODFILE CHECKSUM: 8a9efc110b11cea759a4465aeb4cbb61ae694bd6
+
+COCOAPODS: 1.10.1

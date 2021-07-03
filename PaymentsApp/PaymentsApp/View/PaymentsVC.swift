@@ -12,7 +12,7 @@ class PaymentsVC: UIViewController {
     // MARK: - Properties
     private let tableView = UITableView()
     var token: String
-    private var values: [[String : Any]]?
+    private var payments = [PaymentModel]()
     
     init(token: String) {
         self.token = token
@@ -39,8 +39,11 @@ class PaymentsVC: UIViewController {
             switch status {
             case .failure(let error):
                 print(error.localizedDescription)
-            case .success(let values):
-                self?.values = values
+            case .success(let payments):
+                self?.payments = payments
+                payments.forEach {
+                    print($0.created)
+                }
                 self?.tableView.reloadData()
             }
         }
@@ -93,39 +96,37 @@ extension PaymentsVC: UITableViewDelegate {
 extension PaymentsVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let values = values else { return 0 }
-        return values.count
+        return payments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PaymentCell.paymentCell, for: indexPath) as? PaymentCell else { return UITableViewCell() }
         
-        guard let values = values else { return UITableViewCell() }
+        let payment = payments[indexPath.row]
         
-        let value = values[indexPath.row]
+        var amount = payment.amount
+        var created = payment.created
+        var currency = payment.currency
+        var desc = payment.desc
         
-        var createdStr = "N/A"
-        var currencyStr = "No name"
-        var descStr = "N/A"
-        var amountStr = "N/A"
-        
-        if let created = value["created"], "\(created)" != "" {
-            createdStr = "\(created)"
-        }
-        if let currency = value["currency"], "\(currency)" != "" {
-            currencyStr = "\(currency)"
+        if amount == "" || amount == nil {
+            amount = "000"
         }
         
-        if let desc = value["desc"], "\(desc)" != "" {
-            descStr = "\(desc)"
+        if created == "" || created == nil {
+            created = "N/A"
         }
         
-        if let amount = value["amount"], "\(amount)" != "" {
-            amountStr = "\(amount)"
+        if currency == "" || currency == nil {
+            currency = "No name"
         }
         
-        cell.configureCell(created: createdStr, currency: currencyStr, desc: descStr, amount: amountStr)
+        if desc == "" || desc == nil {
+            desc = "000"
+        }
+        
+        cell.configureCell(created: created ?? "", currency: currency ?? "", desc: desc ?? "", amount: amount ?? "N/A")
         
         return cell
     }

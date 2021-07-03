@@ -1,0 +1,6 @@
+framework module Pods_PaymentsApp {
+  umbrella header "Pods-PaymentsApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
