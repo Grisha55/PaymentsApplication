@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DynamicJSON
 
 class NetworkingService {
     
@@ -58,7 +59,7 @@ class NetworkingService {
         task.resume()
     }
     
-    func getUserPayments(token: String, completion: @escaping (Result<[[String : Any]], Error>) -> Void) {
+    func getUserPayments(token: String, completion: @escaping (Result<[PaymentModel], Error>) -> Void) {
         
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
@@ -87,14 +88,11 @@ class NetworkingService {
                 return
             }
             
-            do {
-                guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else { return }
-                guard let values = json["response"] as? [[String : Any]] else { return }
-                DispatchQueue.main.async {
-                    completion(.success(values))
-                }
-            } catch {
-                completion(.failure(error))
+            guard let items = JSON(data).response.array else { return }
+            let payments: [PaymentModel] = items.map { PaymentModel(data: $0) }
+            
+            DispatchQueue.main.async {
+                completion(.success(payments))
             }
         }
         task.resume()
