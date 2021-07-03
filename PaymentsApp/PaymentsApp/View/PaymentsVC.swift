@@ -29,7 +29,7 @@ class PaymentsVC: UIViewController {
         getDataToTableView()
         view.backgroundColor = UIColor.init(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
         configureTableView()
-        setTableViewConstraints()
+        setTableViewConstraints(tableView: tableView)
         setupNavigationBar()
     }
     
@@ -68,13 +68,13 @@ class PaymentsVC: UIViewController {
         tableView.showsVerticalScrollIndicator = false
     }
     
-    private func setTableViewConstraints() {
-        tableView.translatesAutoresizingMaskIntoConstraints                        = false
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive           = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive     = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive   = true
-    }
+//    private func setTableViewConstraints() {
+//        tableView.translatesAutoresizingMaskIntoConstraints                        = false
+//        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive           = true
+//        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive     = true
+//        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive   = true
+//    }
 
 }
 

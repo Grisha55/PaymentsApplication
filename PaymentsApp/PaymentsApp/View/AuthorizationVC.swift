@@ -34,11 +34,11 @@ class AuthorizationVC: UIViewController {
         configureLogInButton()
         configureAuthStackView()
         
-        setTitleLabelConstraints()
-        setLoginTFConstraints()
-        setPasswordTFConstraints()
-        setLogInButtonConstraints()
-        setAuthStackViewConstraints()
+        setTitleLabelConstraints(titleLabel: titleLabel)
+        setLoginTFConstraints(loginTextField: loginTextField, authStackView: authStackView)
+        setPasswordTFConstraints(passwordTextField: passwordTextField, authStackView: authStackView)
+        setLogInButtonConstraints(logInButton: logInButton, authStackView: authStackView)
+        setAuthStackViewConstraints(authStackView: authStackView, titleLabel: titleLabel)
         
         setupNavigationBar()
     }
@@ -115,35 +115,6 @@ class AuthorizationVC: UIViewController {
         passwordTextField.layer.cornerRadius = 8.0
         passwordTextField.layer.borderWidth = 1.0
         passwordTextField.layer.borderColor = UIColor.black.cgColor
-    }
-    
-    private func setAuthStackViewConstraints() {
-        authStackView.translatesAutoresizingMaskIntoConstraints                                       = false
-        authStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive                  = true
-        authStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
-        authStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 150).isActive  = true
-        authStackView.heightAnchor.constraint(equalToConstant: 200).isActive                          = true
-    }
-    
-    private func setTitleLabelConstraints() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints                             = false
-        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 150).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive        = true
-    }
-    
-    private func setLoginTFConstraints() {
-        loginTextField.translatesAutoresizingMaskIntoConstraints                                 = false
-        loginTextField.trailingAnchor.constraint(equalTo: authStackView.trailingAnchor).isActive = true
-    }
-    
-    private func setPasswordTFConstraints() {
-        passwordTextField.translatesAutoresizingMaskIntoConstraints                                  = false
-        passwordTextField.trailingAnchor.constraint(equalTo: authStackView.trailingAnchor).isActive  = true
-    }
-    
-    private func setLogInButtonConstraints() {
-        logInButton.translatesAutoresizingMaskIntoConstraints                                 = false
-        logInButton.trailingAnchor.constraint(equalTo: authStackView.trailingAnchor).isActive = true
     }
 
 }

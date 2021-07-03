@@ -30,12 +30,12 @@ class PaymentCell: UITableViewCell {
         configureAmountLabel()
         configureStackView()
         
-        setBackViewConstraints()
-        setStackViewConstraints()
-        setCreateLabelConstraints()
-        setCurrancyLabelConstraints()
-        setDescLabelConstraints()
-        setAmountLabelConstraints()
+        setBackViewConstraints(backView: backView)
+        setStackViewConstraints(stackView: stackView, backView: backView)
+        setCreateLabelConstraints(createdLabel: createdLabel, stackView: stackView)
+        setCurrancyLabelConstraints(currencyLabel: currencyLabel, stackView: stackView)
+        setDescLabelConstraints(descLabel: descLabel, stackView: stackView)
+        setAmountLabelConstraints(amountLabel: amountLabel, stackView: stackView)
     }
     
     required init?(coder: NSCoder) {
@@ -83,42 +83,6 @@ class PaymentCell: UITableViewCell {
     
     private func configureAmountLabel() {
         amountLabel.textColor = .black
-    }
-    
-    private func setBackViewConstraints() {
-        backView.translatesAutoresizingMaskIntoConstraints = false
-        backView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive            = true
-        backView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive     = true
-        backView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        backView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive    = true
-    }
-    
-    private func setStackViewConstraints() {
-        stackView.translatesAutoresizingMaskIntoConstraints                                       = false
-        stackView.topAnchor.constraint(equalTo: backView.topAnchor).isActive                      = true
-        stackView.bottomAnchor.constraint(equalTo: backView.bottomAnchor).isActive                = true
-        stackView.trailingAnchor.constraint(equalTo: backView.trailingAnchor).isActive            = true
-        stackView.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 5).isActive = true
-    }
-    
-    private func setCreateLabelConstraints() {
-        createdLabel.translatesAutoresizingMaskIntoConstraints                                            = false
-        createdLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10).isActive = true
-    }
-    
-    private func setCurrancyLabelConstraints() {
-        currencyLabel.translatesAutoresizingMaskIntoConstraints                                            = false
-        currencyLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10).isActive = true
-    }
-    
-    private func setDescLabelConstraints() {
-        descLabel.translatesAutoresizingMaskIntoConstraints                                            = false
-        descLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10).isActive = true
-    }
-    
-    private func setAmountLabelConstraints() {
-        amountLabel.translatesAutoresizingMaskIntoConstraints                                            = false
-        amountLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -10).isActive = true
     }
     
     override func prepareForReuse() {
