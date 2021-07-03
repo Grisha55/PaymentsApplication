@@ -42,7 +42,7 @@ class PaymentsVC: UIViewController {
             case .success(let payments):
                 self?.payments = payments
                 payments.forEach {
-                    print($0.created)
+                    print($0.amount)
                 }
                 self?.tableView.reloadData()
             }
@@ -110,12 +110,12 @@ extension PaymentsVC: UITableViewDataSource {
         var currency = payment.currency
         var desc = payment.desc
         
-        if amount == "" || amount == nil {
-            amount = "000"
+        if String(amount ?? 0) == "" || amount == nil {
+            amount = 0
         }
         
-        if created == "" || created == nil {
-            created = "N/A"
+        if String(created ?? 0) == "" || created == nil {
+            created = 0
         }
         
         if currency == "" || currency == nil {
@@ -126,7 +126,7 @@ extension PaymentsVC: UITableViewDataSource {
             desc = "000"
         }
         
-        cell.configureCell(created: created ?? "", currency: currency ?? "", desc: desc ?? "", amount: amount ?? "N/A")
+        cell.configureCell(created: String(created ?? 0), currency: currency ?? "", desc: desc ?? "", amount: String(amount ?? 0))
         
         return cell
     }
