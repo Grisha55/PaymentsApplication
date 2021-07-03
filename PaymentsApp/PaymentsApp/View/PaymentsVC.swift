@@ -41,9 +41,6 @@ class PaymentsVC: UIViewController {
                 print(error.localizedDescription)
             case .success(let payments):
                 self?.payments = payments
-                payments.forEach {
-                    print($0.amount)
-                }
                 self?.tableView.reloadData()
             }
         }
