@@ -98,7 +98,7 @@
 			children = (
 				BE906E2626902EE500D9A35E /* Extensions */,
 				BE906E21268F9A0900D9A35E /* Model */,
-				BE906E22268F9A1000D9A35E /* View */,
+				BE906E22268F9A1000D9A35E /* Controllers */,
 				BE906E13268F13ED00D9A35E /* ServiceLayer */,
 				BE906E23268F9A3400D9A35E /* System */,
 				BE906E0B268F08E000D9A35E /* Info.plist */,
@@ -124,14 +124,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BE906E22268F9A1000D9A35E /* View */ = {
+		BE906E22268F9A1000D9A35E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				BE906E11268F099700D9A35E /* AuthorizationVC.swift */,
 				BE906E18268F1F2C00D9A35E /* PaymentsVC.swift */,
 				BE906E1A268F2B5200D9A35E /* PaymentCell.swift */,
 			);
-			path = View;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		BE906E23268F9A3400D9A35E /* System */ = {
