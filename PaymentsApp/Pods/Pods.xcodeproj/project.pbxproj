@@ -29,7 +29,7 @@
 /* Begin PBXFileReference section */
 		0F7656833D3C86C6335DA20164C58277 /* DynamicJSON.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DynamicJSON.release.xcconfig; sourceTree = "<group>"; };
 		10BFA33A253D069BAE0545E32470BC8D /* Pods-PaymentsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PaymentsApp.debug.xcconfig"; sourceTree = "<group>"; };
-		112BCBEC1E3C5554E73B9A6D44C8A511 /* Pods_PaymentsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_PaymentsApp.framework; path = "Pods-PaymentsApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		112BCBEC1E3C5554E73B9A6D44C8A511 /* Pods_PaymentsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaymentsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1393C0CE30ABA4A803579CD6DA983A3A /* DynamicJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DynamicJSON.modulemap; sourceTree = "<group>"; };
 		13ACFD8D5423A630E9D45283CF5A85B1 /* Pods-PaymentsApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PaymentsApp-acknowledgements.plist"; sourceTree = "<group>"; };
 		17CFAC00F49F4738A81C65DDBE2F8C21 /* Pods-PaymentsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PaymentsApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -37,8 +37,8 @@
 		672EFD03251E40873E3844D2266CCB2B /* Pods-PaymentsApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PaymentsApp-umbrella.h"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		822D411EC86684DF79D62FF79187AF13 /* Pods-PaymentsApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PaymentsApp-dummy.m"; sourceTree = "<group>"; };
-		8E14F3C80EC0A81E24B4A04CE779AA42 /* DynamicJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DynamicJSON.framework; path = DynamicJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8E14F3C80EC0A81E24B4A04CE779AA42 /* DynamicJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DynamicJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AC12369748173C33DFD0027837F67394 /* Pods-PaymentsApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PaymentsApp-frameworks.sh"; sourceTree = "<group>"; };
 		AFC584A590168AE51BAAAD768304F972 /* DynamicJSON-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DynamicJSON-Info.plist"; sourceTree = "<group>"; };
 		B58CC7615FF584FEE088900C27436A84 /* Pods-PaymentsApp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PaymentsApp-Info.plist"; sourceTree = "<group>"; };
@@ -160,7 +160,6 @@
 				38CD9DB9808FD649D0F71A13D02F3F05 /* DynamicJSON.swift */,
 				0FE25CFA4078E8FE1545CE7C5C78FC50 /* Support Files */,
 			);
-			name = DynamicJSON;
 			path = DynamicJSON;
 			sourceTree = "<group>";
 		};
@@ -230,7 +229,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					D4D5490F7AA90263B79F2C538239B7DA = {
+						LastSwiftMigration = 1250;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -313,7 +317,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DynamicJSON/DynamicJSON-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DynamicJSON/DynamicJSON-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,7 +329,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -348,7 +352,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/DynamicJSON/DynamicJSON-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/DynamicJSON/DynamicJSON-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -360,7 +364,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
