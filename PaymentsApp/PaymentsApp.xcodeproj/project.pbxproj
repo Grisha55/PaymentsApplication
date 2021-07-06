@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		24164C8C8EF0D69D34A0CAB0 /* Pods_PaymentsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786D8EC4A189A758FBFE2090 /* Pods_PaymentsApp.framework */; };
+		BE5A87682694D7E2008B1B92 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A87672694D7E2008B1B92 /* AuthorizationView.swift */; };
+		BE5A876B2694EC2D008B1B92 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A876A2694EC2D008B1B92 /* PaymentsView.swift */; };
 		BE906DFE268F08DD00D9A35E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906DFD268F08DD00D9A35E /* AppDelegate.swift */; };
 		BE906E00268F08DD00D9A35E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906DFF268F08DD00D9A35E /* SceneDelegate.swift */; };
 		BE906E07268F08E000D9A35E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE906E06268F08E000D9A35E /* Assets.xcassets */; };
@@ -20,13 +22,14 @@
 		BE906E1F268F588000D9A35E /* SessionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E1E268F588000D9A35E /* SessionApp.swift */; };
 		BE906E2526902E4A00D9A35E /* PaymentsVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E2426902E4A00D9A35E /* PaymentsVC+Constraints.swift */; };
 		BE906E2826902F1300D9A35E /* PaymentCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E2726902F1300D9A35E /* PaymentCell+Constraints.swift */; };
-		BE906E2A2690305300D9A35E /* AuthorizationVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E292690305300D9A35E /* AuthorizationVC+Constraints.swift */; };
 		BE906E2C26903EBE00D9A35E /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E2B26903EBE00D9A35E /* PaymentModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		786D8EC4A189A758FBFE2090 /* Pods_PaymentsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaymentsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38D220EAED481223376ACBB /* Pods-PaymentsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentsApp.debug.xcconfig"; path = "Target Support Files/Pods-PaymentsApp/Pods-PaymentsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		BE5A87672694D7E2008B1B92 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		BE5A876A2694EC2D008B1B92 /* PaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
 		BE906DFA268F08DD00D9A35E /* PaymentsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaymentsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE906DFD268F08DD00D9A35E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE906DFF268F08DD00D9A35E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,7 +44,6 @@
 		BE906E1E268F588000D9A35E /* SessionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionApp.swift; sourceTree = "<group>"; };
 		BE906E2426902E4A00D9A35E /* PaymentsVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PaymentsVC+Constraints.swift"; sourceTree = "<group>"; };
 		BE906E2726902F1300D9A35E /* PaymentCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PaymentCell+Constraints.swift"; sourceTree = "<group>"; };
-		BE906E292690305300D9A35E /* AuthorizationVC+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthorizationVC+Constraints.swift"; sourceTree = "<group>"; };
 		BE906E2B26903EBE00D9A35E /* PaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
 		DF60876BFE6C46699C8C9437 /* Pods-PaymentsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentsApp.release.xcconfig"; path = "Target Support Files/Pods-PaymentsApp/Pods-PaymentsApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,8 +138,10 @@
 		BE906E22268F9A1000D9A35E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BE5A87672694D7E2008B1B92 /* AuthorizationView.swift */,
 				BE906E11268F099700D9A35E /* AuthorizationVC.swift */,
 				BE906E18268F1F2C00D9A35E /* PaymentsVC.swift */,
+				BE5A876A2694EC2D008B1B92 /* PaymentsView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -156,7 +160,6 @@
 		BE906E2626902EE500D9A35E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				BE906E292690305300D9A35E /* AuthorizationVC+Constraints.swift */,
 				BE906E2426902E4A00D9A35E /* PaymentsVC+Constraints.swift */,
 				BE906E2726902F1300D9A35E /* PaymentCell+Constraints.swift */,
 			);
@@ -277,13 +280,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE906E2C26903EBE00D9A35E /* PaymentModel.swift in Sources */,
-				BE906E2A2690305300D9A35E /* AuthorizationVC+Constraints.swift in Sources */,
 				BE906E1F268F588000D9A35E /* SessionApp.swift in Sources */,
 				BE906E12268F099700D9A35E /* AuthorizationVC.swift in Sources */,
 				BE906DFE268F08DD00D9A35E /* AppDelegate.swift in Sources */,
 				BE906E1D268F443000D9A35E /* Alerts.swift in Sources */,
 				BE906E00268F08DD00D9A35E /* SceneDelegate.swift in Sources */,
 				BE906E2826902F1300D9A35E /* PaymentCell+Constraints.swift in Sources */,
+				BE5A876B2694EC2D008B1B92 /* PaymentsView.swift in Sources */,
+				BE5A87682694D7E2008B1B92 /* AuthorizationView.swift in Sources */,
 				BE906E1B268F2B5200D9A35E /* PaymentCell.swift in Sources */,
 				BE906E15268F140700D9A35E /* NetworkingService.swift in Sources */,
 				BE906E19268F1F2C00D9A35E /* PaymentsVC.swift in Sources */,
