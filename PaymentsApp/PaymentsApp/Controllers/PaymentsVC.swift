@@ -12,7 +12,7 @@ class PaymentsVC: UIViewController {
     // MARK: - Properties
     private let tableView = UITableView()
     var token: String
-    private var payments = [PaymentModel]()
+    private let dataSource = ObjectDataSource()
     
     init(token: String) {
         self.token = token
@@ -40,7 +40,7 @@ class PaymentsVC: UIViewController {
             case .failure(let error):
                 print(error.localizedDescription)
             case .success(let payments):
-                self?.payments = payments
+                self?.dataSource.payments = payments
                 self?.tableView.reloadData()
             }
         }
@@ -63,13 +63,22 @@ class PaymentsVC: UIViewController {
         tableView.backgroundColor = UIColor.init(red: 224/255, green: 224/255, blue: 224/255, alpha: 1.0)
         tableView.rowHeight = 200
         tableView.delegate = self
-        tableView.dataSource = self
+        tableView.dataSource = dataSource
         tableView.register(PaymentCell.self, forCellReuseIdentifier: PaymentCell.paymentCell)
         tableView.showsVerticalScrollIndicator = false
     }
+    
+    private func makeAnimationForCells(cell: UITableViewCell) {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
+        cell.layer.transform = rotationTransform
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.75) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1.0
+        }
+    }
 
 }
-
 
 // MARK: - UITableViewDelegate
 extension PaymentsVC: UITableViewDelegate {
@@ -79,52 +88,6 @@ extension PaymentsVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 50, 0)
-        cell.layer.transform = rotationTransform
-        cell.alpha = 0
-        UIView.animate(withDuration: 0.75) {
-            cell.layer.transform = CATransform3DIdentity
-            cell.alpha = 1.0
-        }
-    }
-}
-
-// MARK: - UITableViewDataSource
-extension PaymentsVC: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return payments.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: PaymentCell.paymentCell, for: indexPath) as? PaymentCell else { return UITableViewCell() }
-        
-        let payment = payments[indexPath.row]
-        
-        var amount = payment.amount
-        var created = payment.created
-        var currency = payment.currency
-        var desc = payment.desc
-        
-        if String(amount ?? 0) == "" || amount == nil {
-            amount = 0
-        }
-        
-        if String(created ?? 0) == "" || created == nil {
-            created = 0
-        }
-        
-        if currency == "" || currency == nil {
-            currency = "No name"
-        }
-        
-        if desc == "" || desc == nil {
-            desc = "000"
-        }
-        
-        cell.configureCell(created: String(created ?? 0), currency: currency ?? "", desc: desc ?? "", amount: String(amount ?? 0))
-        
-        return cell
+        makeAnimationForCells(cell: cell)
     }
 }
