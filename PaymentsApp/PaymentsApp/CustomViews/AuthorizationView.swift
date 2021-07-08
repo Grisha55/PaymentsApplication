@@ -23,14 +23,12 @@ class AuthorizationView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupUI()
         createSubviews()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
         setupUI()
         createSubviews()
     }

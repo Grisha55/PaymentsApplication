@@ -21,6 +21,7 @@
 		BE906E1F268F588000D9A35E /* SessionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E1E268F588000D9A35E /* SessionApp.swift */; };
 		BE906E2826902F1300D9A35E /* PaymentCell+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E2726902F1300D9A35E /* PaymentCell+Constraints.swift */; };
 		BE906E2C26903EBE00D9A35E /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE906E2B26903EBE00D9A35E /* PaymentModel.swift */; };
+		BECEBE3426963BBE00A0D7F4 /* HasAuthorizationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECEBE3326963BBE00A0D7F4 /* HasAuthorizationViewProtocol.swift */; };
 		BEF44E8326957D0D00F7976F /* ObjectDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF44E8226957D0D00F7976F /* ObjectDataSource.swift */; };
 		BEF44E8B2695CA4500F7976F /* PaymentsVC+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF44E8A2695CA4500F7976F /* PaymentsVC+Constraints.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		BE906E1E268F588000D9A35E /* SessionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionApp.swift; sourceTree = "<group>"; };
 		BE906E2726902F1300D9A35E /* PaymentCell+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PaymentCell+Constraints.swift"; sourceTree = "<group>"; };
 		BE906E2B26903EBE00D9A35E /* PaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
+		BECEBE3326963BBE00A0D7F4 /* HasAuthorizationViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasAuthorizationViewProtocol.swift; sourceTree = "<group>"; };
 		BEF44E8226957D0D00F7976F /* ObjectDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDataSource.swift; sourceTree = "<group>"; };
 		BEF44E8A2695CA4500F7976F /* PaymentsVC+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaymentsVC+Constraints.swift"; sourceTree = "<group>"; };
 		DF60876BFE6C46699C8C9437 /* Pods-PaymentsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentsApp.release.xcconfig"; path = "Target Support Files/Pods-PaymentsApp/Pods-PaymentsApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		BE906DFC268F08DD00D9A35E /* PaymentsApp */ = {
 			isa = PBXGroup;
 			children = (
+				BECEBE35269704A600A0D7F4 /* Protocols */,
 				BEF44E892695C9FA00F7976F /* Objects */,
 				BEF44E882695C9DC00F7976F /* CustomViews */,
 				BE906E2626902EE500D9A35E /* Extensions */,
@@ -164,6 +167,14 @@
 				BE906E2726902F1300D9A35E /* PaymentCell+Constraints.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BECEBE35269704A600A0D7F4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BECEBE3326963BBE00A0D7F4 /* HasAuthorizationViewProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		BEF44E882695C9DC00F7976F /* CustomViews */ = {
@@ -301,6 +312,7 @@
 				BE906E1F268F588000D9A35E /* SessionApp.swift in Sources */,
 				BE906E12268F099700D9A35E /* AuthorizationVC.swift in Sources */,
 				BE906DFE268F08DD00D9A35E /* AppDelegate.swift in Sources */,
+				BECEBE3426963BBE00A0D7F4 /* HasAuthorizationViewProtocol.swift in Sources */,
 				BE906E1D268F443000D9A35E /* Alerts.swift in Sources */,
 				BE906E00268F08DD00D9A35E /* SceneDelegate.swift in Sources */,
 				BE906E2826902F1300D9A35E /* PaymentCell+Constraints.swift in Sources */,

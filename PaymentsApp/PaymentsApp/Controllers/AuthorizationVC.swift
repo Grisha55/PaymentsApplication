@@ -7,14 +7,18 @@
 
 import UIKit
 
-class AuthorizationVC: UIViewController {
+class AuthorizationVC: UIViewController, HasCustomView {
+    typealias CustomView = AuthorizationView
+    
+    override func loadView() {
+        let customView = CustomView()
+        customView.delegate = self
+        view = customView
+        view.backgroundColor = .white
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let authorizationView = AuthorizationView()
-        view = authorizationView
-        view.backgroundColor = .white
-        authorizationView.delegate = self
         
         setupNavigationBar()
     }
