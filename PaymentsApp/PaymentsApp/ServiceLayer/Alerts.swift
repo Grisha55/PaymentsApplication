@@ -7,7 +7,11 @@
 
 import UIKit
 
-class Alerts {
+protocol AlertsProtocol {
+    func showAlert(vc: UIViewController, message: String)
+}
+
+class Alerts: AlertsProtocol {
     
     func showAlert(vc: UIViewController, message: String) {
         let alert = UIAlertController(title: "Ошибка авторизации", message: message, preferredStyle: .alert)

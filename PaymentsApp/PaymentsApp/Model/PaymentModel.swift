@@ -22,4 +22,13 @@ class PaymentModel: Codable {
         self.currency = data.currency.string
         self.desc = data.desc.string
     }
+    
+    convenience required init(amount: Double, created: Int, currency: String, desc: String) {
+        self.init()
+        
+        self.amount = amount
+        self.created = created
+        self.currency = currency
+        self.desc = desc
+    }
 }

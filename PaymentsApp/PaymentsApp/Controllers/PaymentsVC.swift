@@ -10,9 +10,9 @@ import UIKit
 class PaymentsVC: UIViewController {
 
     // MARK: - Properties
-    private let tableView = UITableView()
+    internal let tableView = UITableView()
     var token: String
-    private let dataSource = ObjectDataSource()
+    internal let dataSource = ObjectDataSource()
     
     init(token: String) {
         self.token = token
@@ -35,13 +35,18 @@ class PaymentsVC: UIViewController {
     
     // MARK: - Methods
     func getDataToTableView() {
-        NetworkingService().getUserPayments(token: token) { [weak self] status in
-            switch status {
-            case .failure(let error):
-                print(error.localizedDescription)
-            case .success(let payments):
-                self?.dataSource.payments = payments
-                self?.tableView.reloadData()
+        DispatchQueue.global(qos: .utility).async { [weak self] in
+            guard let self = self else { return }
+            NetworkingService().getUserPayments(token: self.token) { [weak self] status in
+                switch status {
+                case .failure(let error):
+                    print(error.localizedDescription)
+                case .success(let payments):
+                    self?.dataSource.payments = payments
+                    DispatchQueue.main.async {
+                        self?.tableView.reloadData()
+                    }
+                }
             }
         }
     }
