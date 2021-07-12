@@ -10,64 +10,54 @@ import XCTest
 
 class NetworkServiceTests: XCTestCase {
 
-    var authorizationVC: AuthorizationVC!
-    var networkService: NetworkingService!
+    var mockNetworkService: MockNetworkService!
     
     override func setUpWithError() throws {
-        authorizationVC = AuthorizationVC()
-        networkService = NetworkingService()
+        mockNetworkService = MockNetworkService()
     }
 
     override func tearDownWithError() throws {
-        authorizationVC = nil
-        networkService = nil
+        mockNetworkService = nil
     }
-
-    func testRequestForTokenNotNil() {
+    
+    func testGettionUserTokenRequest() {
         
         // get
+        let vc = UIViewController()
         let login = "demo"
         let password = "12345"
-        let promise = expectation(description: #function)
         
         // when
-        networkService.getUserToken(vc: authorizationVC, login: login, password: password) { (token) in
-            if token == "" {
-                XCTFail("The token is empty")
-            } else {
-                XCTAssertEqual(token, "123456789")
-                promise.fulfill()
+        mockNetworkService.getUserToken(vc: vc, login: login, password: password) { (result) in
+            switch result {
+            case .failure(_):
+                XCTFail()
+            case .success(let token):
+                XCTAssertNotEqual(token, "")
             }
         }
         
         // then
-        wait(for: [promise], timeout: 5)
+        XCTAssertEqual(login, "demo")
+        XCTAssertEqual(password, "12345")
     }
     
-    func testRequestForUserPaymentsNotNil() {
+    func testGettingUserPaymentsRequest() {
         
         // get
         let token = "123456789"
-        let promise = expectation(description: #function)
         
         // when
-        networkService.getUserPayments(token: token) { (result) in
+        mockNetworkService.getUserPayments(token: token) { (result) in
             switch result {
             case .failure(_):
                 XCTFail()
             case .success(let payments):
                 XCTAssertNotNil(payments)
-                promise.fulfill()
             }
         }
         
         // then
-        waitForExpectations(timeout: 2) { (error) in
-            if error != nil {
-                XCTFail()
-            }
-        }
-        
+        XCTAssertEqual(token, "123456789")
     }
-
 }
