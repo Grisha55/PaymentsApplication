@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		24164C8C8EF0D69D34A0CAB0 /* Pods_PaymentsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 786D8EC4A189A758FBFE2090 /* Pods_PaymentsApp.framework */; };
+		BE26489B269C40850096E526 /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26489A269C40850096E526 /* URLProtocolMock.swift */; };
+		BE26489E269C4A450096E526 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE26489D269C4A450096E526 /* MockNetworkService.swift */; };
 		BE5A87682694D7E2008B1B92 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5A87672694D7E2008B1B92 /* AuthorizationView.swift */; };
 		BE6DD424269AFE4400811D14 /* PaymentsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6DD423269AFE4400811D14 /* PaymentsAppTests.swift */; };
 		BE6DD42C269B058000811D14 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE6DD42B269B058000811D14 /* NetworkServiceTests.swift */; };
@@ -44,6 +46,8 @@
 /* Begin PBXFileReference section */
 		786D8EC4A189A758FBFE2090 /* Pods_PaymentsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaymentsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38D220EAED481223376ACBB /* Pods-PaymentsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaymentsApp.debug.xcconfig"; path = "Target Support Files/Pods-PaymentsApp/Pods-PaymentsApp.debug.xcconfig"; sourceTree = "<group>"; };
+		BE26489A269C40850096E526 /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
+		BE26489D269C4A450096E526 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
 		BE5A87672694D7E2008B1B92 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		BE6DD421269AFE4400811D14 /* PaymentsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaymentsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE6DD423269AFE4400811D14 /* PaymentsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsAppTests.swift; sourceTree = "<group>"; };
@@ -108,9 +112,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BE26489C269C49C40096E526 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				BE26489D269C4A450096E526 /* MockNetworkService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		BE6DD422269AFE4400811D14 /* PaymentsAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				BE26489C269C49C40096E526 /* Mocks */,
 				BE6DD423269AFE4400811D14 /* PaymentsAppTests.swift */,
 				BE6DD42B269B058000811D14 /* NetworkServiceTests.swift */,
 				BE6DD425269AFE4400811D14 /* Info.plist */,
@@ -172,6 +185,7 @@
 				BE906E14268F140700D9A35E /* NetworkingService.swift */,
 				BE906E1C268F443000D9A35E /* Alerts.swift */,
 				BE906E1E268F588000D9A35E /* SessionApp.swift */,
+				BE26489A269C40850096E526 /* URLProtocolMock.swift */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -380,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE26489E269C4A450096E526 /* MockNetworkService.swift in Sources */,
 				BE6DD432269B6FF100811D14 /* AlertsTests.swift in Sources */,
 				BE6DD430269B69C800811D14 /* AuthorizationVCTests.swift in Sources */,
 				BE6DD42C269B058000811D14 /* NetworkServiceTests.swift in Sources */,
@@ -402,6 +417,7 @@
 				BE906E1D268F443000D9A35E /* Alerts.swift in Sources */,
 				BE906E00268F08DD00D9A35E /* SceneDelegate.swift in Sources */,
 				BE906E2826902F1300D9A35E /* PaymentCell+Constraints.swift in Sources */,
+				BE26489B269C40850096E526 /* URLProtocolMock.swift in Sources */,
 				BE5A87682694D7E2008B1B92 /* AuthorizationView.swift in Sources */,
 				BE906E1B268F2B5200D9A35E /* PaymentCell.swift in Sources */,
 				BE906E15268F140700D9A35E /* NetworkingService.swift in Sources */,

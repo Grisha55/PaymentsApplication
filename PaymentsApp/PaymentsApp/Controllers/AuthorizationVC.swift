@@ -43,15 +43,18 @@ extension AuthorizationVC: ButtonLogInDelegate {
             return
         }
         
-        NetworkingService().getUserToken(vc: self, login: login, password: password, completion: { [weak self] token in
+        NetworkingService().getUserToken(vc: self, login: login, password: password, completion: { [weak self] (result) in
             
-            guard let self = self else { return }
-            if token != "" {
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let token):
                 let paymentsVC = PaymentsVC(token: token)
                 paymentsVC.modalTransitionStyle = .crossDissolve
                 paymentsVC.modalPresentationStyle = .fullScreen
-                self.navigationController?.pushViewController(paymentsVC, animated: true)
+                self?.navigationController?.pushViewController(paymentsVC, animated: true)
             }
+            
         })
     }
     

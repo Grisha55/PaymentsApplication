@@ -8,9 +8,14 @@
 import UIKit
 import DynamicJSON
 
-class NetworkingService {
+protocol NetworkingServiceProtocol {
+    func getUserToken(vc: UIViewController, login: String, password: String, completion: @escaping (Result<String, Error>) -> Void)
+    func getUserPayments(token: String, completion: @escaping (Result<[PaymentModel], Error>) -> Void)
+}
+
+class NetworkingService: NetworkingServiceProtocol {
     
-    func getUserToken(vc: UIViewController, login: String, password: String, completion: @escaping (String) -> Void) {
+    func getUserToken(vc: UIViewController, login: String, password: String, completion: @escaping (Result<String, Error>) -> Void) {
         
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
@@ -34,11 +39,14 @@ class NetworkingService {
         let task = session.dataTask(with: request) { data, response, error in
             
             guard error == nil else {
-                print(error?.localizedDescription as Any)
+                completion(.failure(error!))
                 return
             }
             
-            guard let data = data else { return }
+            guard let data = data else {
+                completion(.failure(error!))
+                return
+            }
             
             do {
                 guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else { return }
@@ -50,7 +58,7 @@ class NetworkingService {
                 }
                 guard let token = response["token"] as? String else { return }
                 DispatchQueue.main.async {
-                    completion(token)
+                    completion(.success(token))
                 }
             } catch {
                 print(error.localizedDescription)
